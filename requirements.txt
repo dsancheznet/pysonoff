@@ -1,1 +1,1 @@
-sonoff-python
+sonoff-python>=0.2.1
