@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=pySONOFF
+Comment=Control you SONOFF devices from Linux
+Exec=/DIRECTORY_WHERE_PYSONOFF_LIVES/pysonoff.py
+Icon=messagebox_info
+Terminal=false
+Type=Application
+Categories=Network;Gtk;
+Keywords=network;administration;
+X-GNOME-UsesNotifications=false
