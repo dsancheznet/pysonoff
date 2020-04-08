@@ -15,7 +15,7 @@ from gi.repository import Gtk, Gio, GObject
 #Define a version number to be able to change it just in one place
 global VERSION_NUMBER, WEB_PAGE
 VERSION_NUMBER = "1.1"
-WEB_PAGE="https://www.dsanchez.net/"
+WEB_PAGE="https://github.com/dsancheznet/pysonoff/"
 
 class MainWindow(Gtk.Window):
     """
@@ -303,7 +303,7 @@ class MainWindow(Gtk.Window):
         for tmpDevice in self.cHome.get_devices():
             #Is yhe model known?
             if tmpDevice['productModel'] not in tmpModel:
-                print('The current product is not found in my device list. Please open an issue at ' + WEB_PAGE )
+                print('The current product is not found in my device list. Please open an issue at ' + WEB_PAGE +'issues')
                 tmpModel.update( { 'Unknown' : 4} )
             #Is the device a multiswitch?
             if 'switches' in tmpDevice['params']:
