@@ -103,7 +103,8 @@ class MainWindow(Gtk.Window):
 
         #Last column
         tmpRenderer = Gtk.CellRendererProgress()
-        tmpLastColumn = Gtk.TreeViewColumn( "RSSI", tmpRenderer, value=6 )
+        tmpRenderer.props.text = " "
+        tmpLastColumn = Gtk.TreeViewColumn( "RSSI", tmpRenderer, value=6, )
         self.cTreeView.append_column( tmpLastColumn )
 
         #Add treeview to scroller
@@ -273,7 +274,9 @@ class MainWindow(Gtk.Window):
                 self.cEntryUsername.get_text(),
                 self.cEntryPassword.get_text(),
                 self.cEntryRegion.get_active_text(),
-                self.cEntryToken.get_text() )
+                self.cEntryApiKey.get_text()
+                #self.cEntryToken.get_text()
+                )
             self.updateTreeView()
         else:
             #NO - The slider was turned off.
@@ -319,13 +322,14 @@ class MainWindow(Gtk.Window):
                 #Insert a parent with the result of the childs and save it's iter
                 tmpParent = self.cTreeStore.append(
                             None,
-                            [ tmpDevice['name'],
-                            tmpDevice['deviceid'],
-                            tmpDevice['brandName'],
-                            tmpDevice['productModel'],
-                            tmpDevice['params']['fwVersion'],
-                            tmpChildsPosition ,
-                            int( 100+tmpDevice['params']['rssi'] ) ] )
+                            [
+                                tmpDevice['name'],
+                                tmpDevice['deviceid'],
+                                tmpDevice['brandName'],
+                                tmpDevice['productModel'],
+                                tmpDevice['params']['fwVersion'],
+                                tmpChildsPosition,
+                                int( 130+tmpDevice['params']['rssi'] ) ] )
                 #Iterate over outlets
                 for tmpOutlet in tmpDevice['params']['switches']:
                     tmpArray = [
@@ -335,7 +339,7 @@ class MainWindow(Gtk.Window):
                                 "",
                                 "",
                                 tmpTrueFalse[tmpOutlet['switch']],
-                                int( 100+tmpDevice['params']['rssi'] ) ]
+                                int( 130+tmpDevice['params']['rssi'] ) ]
                     #Is the outlet relevant?
                     if tmpOutlet['outlet'] < tmpModel[tmpDevice['productModel']]:
                         #YES - Add the array to our treeview
@@ -349,9 +353,10 @@ class MainWindow(Gtk.Window):
                             tmpDevice['productModel'],
                             tmpDevice['params']['fwVersion'],
                             tmpTrueFalse[tmpDevice['params']['switch']],
-                            int( 100+tmpDevice['params']['rssi'] ) ]
+                            int( 130+tmpDevice['params']['rssi'] ) ]
                 # Add the array to the treeview
                 self.cTreeStore.append( None, tmpArray )
+                self.cTreeView.expand_all()
 
 #Create Main Window
 myWindow = MainWindow()
