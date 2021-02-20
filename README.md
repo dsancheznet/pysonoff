@@ -25,7 +25,7 @@ Upon starting pySONOFF, you will be presented with an empty interface like so...
 
 ![Main Interface Empty](Interface1.png)
 
-The first time you connecto to your account, it might be a good idea to fill in your accounta data (😜). Therefore, push the congig button:
+The first time you connecto to your account, it might be a good idea to fill in your accounta data (😜). Therefore, push the config button:
 
 ![Main Interface Config](Interface1a.png)
 
