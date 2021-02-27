@@ -37,7 +37,7 @@ The Api key and token will probably appear empty at first but will populate when
 
 ![Main Interface Config API](Interface2a.png)
 
-Once you are done with yout data, just click anywhere to close the bubble and your data will be saved for future sessions. You do not have to do anything, it's automagically done.
+Once you are done with your data, just click anywhere to close the bubble and your data will be saved for future sessions. You do not have to do anything, it's automagically done.
 
 If you feel you are ready to connect to SONOFF's cloud, slide the connect button to on:
 
@@ -55,7 +55,7 @@ The treeview will then populate with the available devices. The treeview gives u
 
 ![Main Interface Data Name](Interface3c.png)
 
-The name of the device. If a device has more than one output, it appears as a depolyable node, whose outlets are numbered from 0 to X. For each outlet, a name can be defined in the eWeLink app but these names are not transmitted to the cloud. This is the reason why you will only have generic names as child nodes.
+The name of the device. If a device has more than one output, it appears as a depolyable node whose outlets are numbered from 0 to X. For each outlet, a name can be defined in the eWeLink app but these names are not transmitted to the cloud. This is the reason why you will only have generic names as child nodes.
 
 The next field is the ID of the device. This number does only matter for internal processing. It is a unique number to identify the device in your network.
 
