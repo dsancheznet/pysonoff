@@ -8,9 +8,11 @@ This program allows you to control your _**unflashed**_, _**stock**_ SONOFF devi
 
 To run this software you need to have the python-sonoff library installed. You may get it from [Lucien2K's Github Page](https://github.com/lucien2k/sonoff-python). Please follow the steps from there to prepare to run pySONOFF.
 
+**UPDATE** since Lucien's repo hasn't been updated for quite a long time, the switching of the devices didn't work anymore. As a workaraound I've taken a user contributed correction of his code ( by marcinlubojanski ) and included it in my repo, since Lucien hasn't made it available in his repo. 
+
 ### Copying
 
-* Copy `pySONOFF.py` to the directory of your choice.
+* Copy `pySONOFF.py` and `sonoff.py` to the directory of your choice.
 
 * Copy `default.config` to the directory `~/.config/sonoff/default.config`. If the directory does not exist, create it.
 
