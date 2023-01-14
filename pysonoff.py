@@ -129,27 +129,38 @@ class MainWindow(Gtk.Window):
         self.cEntryRegion.set_active(0)
         self.cPopover = Gtk.Popover()
         self.cPopover.set_border_width( 10 )
+        self.cUsernameLabel = Gtk.Label()
+        self.cUsernameLabel.set_text("Username")
+        self.cPasswordLabel = Gtk.Label()
+        self.cPasswordLabel.set_text("Password")
+        self.cRegionLabel = Gtk.Label()
+        self.cRegionLabel.set_text("Region")
+        self.cApiKeyLabel = Gtk.Label()
+        self.cApiKeyLabel.set_text("Apikey")
+        self.cTokenLabel = Gtk.Label()
+        self.cTokenLabel.set_text("Token")
+
 
         #Pack popover
         tmpVerticalBox = Gtk.Box( orientation= Gtk.Orientation.VERTICAL )
         tmpHorizontalBox = Gtk.Box( orientation= Gtk.Orientation.HORIZONTAL)
-        tmpHorizontalBox.pack_start( Gtk.Label("Username"), False, False, 2)
+        tmpHorizontalBox.pack_start( self.cUsernameLabel, False, False, 2)
         tmpVerticalBox.pack_start(tmpHorizontalBox, True, False, 2)
         tmpVerticalBox.pack_start( self.cEntryUsername, True, False, 10 )
         tmpHorizontalBox = Gtk.Box( orientation= Gtk.Orientation.HORIZONTAL)
-        tmpHorizontalBox.pack_start( Gtk.Label("Password"), False, False, 2)
+        tmpHorizontalBox.pack_start( self.cPasswordLabel, False, False, 2)
         tmpVerticalBox.pack_start(tmpHorizontalBox, True, False, 2)
         tmpVerticalBox.pack_start( self.cEntryPassword, True, False, 10 )
         tmpHorizontalBox = Gtk.Box( orientation= Gtk.Orientation.HORIZONTAL)
-        tmpHorizontalBox.pack_start( Gtk.Label("Region"), False, False, 2)
+        tmpHorizontalBox.pack_start( self.cRegionLabel, False, False, 2)
         tmpVerticalBox.pack_start(tmpHorizontalBox, True, False, 2)
         tmpVerticalBox.pack_start( self.cEntryRegion, True, False, 10 )
         tmpHorizontalBox = Gtk.Box( orientation= Gtk.Orientation.HORIZONTAL)
-        tmpHorizontalBox.pack_start( Gtk.Label("Apikey"), False, False, 2)
+        tmpHorizontalBox.pack_start( self.cApiKeyLabel, False, False, 2)
         tmpVerticalBox.pack_start(tmpHorizontalBox, True, False, 2)
         tmpVerticalBox.pack_start( self.cEntryApiKey, True, False, 10 )
         tmpHorizontalBox = Gtk.Box( orientation= Gtk.Orientation.HORIZONTAL)
-        tmpHorizontalBox.pack_start( Gtk.Label("Token"), False, False, 2)
+        tmpHorizontalBox.pack_start( self.cTokenLabel, False, False, 2)
         tmpVerticalBox.pack_start(tmpHorizontalBox, True, False, 2)
         tmpVerticalBox.pack_start( self.cEntryToken, True, False, 10 )
         self.cPopover.add( tmpVerticalBox )
@@ -293,7 +304,9 @@ class MainWindow(Gtk.Window):
             'Basic'               : 1 ,
             'Sonoff Touch EUC1'   : 1 ,
             'Touch EU'            : 1 ,
-            'T1 2C'               : 2 }
+            'MINI'                : 1 ,
+            'T1 2C'               : 2 ,
+            '4CH'                 : 4}
         tmpTrueFalse = {
             'on'        : True,
             'off'       : False }
@@ -303,7 +316,7 @@ class MainWindow(Gtk.Window):
         for tmpDevice in self.cHome.get_devices():
             #Is yhe model known?
             if tmpDevice['productModel'] not in tmpModel:
-                print('The current product is not found in my device list. Please open an issue at ' + WEB_PAGE +'issues')
+                print('The current product is not found in my device list (' + tmpDevice['productModel'] + '). Please open an issue at ' + WEB_PAGE +'issues')
                 tmpModel.update( { 'Unknown' : 4} )
             #Is the device a multiswitch?
             if 'switches' in tmpDevice['params']:
